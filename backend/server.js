@@ -5,6 +5,7 @@ import dotenv from 'dotenv';  // const dotenv = require("dotenv");
 
 // Routes import
 import authRoutes from "./routes/auth.routes.js";
+import messageRoutes from "./routes/message.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 
 dotenv.config();
@@ -18,6 +19,7 @@ const PORT  = process.env.PORT || 5000;
 // Middleware for root routes  (api/auth)
 app.use(express.json()); // to parse the incoming request with the JSON payloads ( from req.body)
 app.use("/api/auth",authRoutes) //middleware for root routes
+app.use("/api/messages",messageRoutes) 
 
 
 
