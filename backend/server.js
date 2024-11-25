@@ -2,6 +2,7 @@
 
 import express from "express";  // we are importing instead of writing this : const express = require("express");
 import dotenv from 'dotenv';  // const dotenv = require("dotenv");
+import cookieParser from "cookie-parser";
 
 // Routes import
 import authRoutes from "./routes/auth.routes.js";
@@ -18,6 +19,7 @@ const PORT  = process.env.PORT || 5000;
 
 // Middleware for root routes  (api/auth)
 app.use(express.json()); // to parse the incoming request with the JSON payloads ( from req.body)
+app.use(cookieParser()); 
 app.use("/api/auth",authRoutes) //middleware for root routes
 app.use("/api/messages",messageRoutes) 
 
